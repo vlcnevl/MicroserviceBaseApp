@@ -1,19 +1,30 @@
 {
-  "ReRoutes": [
+  "Routes": [
     {
-      "DownstreamPathTemplate": "/api/reservation/{id}",  // gelen isteği hangi adrese gönderiyim 
-      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/api/reservation/{id}", // gelen isteği hangi adrese gönderiyim 
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 8000
         }
       ],
-      "UpstreamPathTemplate": "/api/reservation/{id}", // dışardan gelen istekler
-      "UpstreamHttpMethod": [  "GET" ]
-    }
-    
+      "UpstreamPathTemplate": "/reservation/{id}", // dışardan gelen istekler
+      "UpstreamHttpMethod": [ "GET" ]
+    },
 
+    {
+      "DownstreamPathTemplate": "/api/contact/{id}", // gelen isteği hangi adrese gönderiyim 
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9000
+        }
+      ],
+      "UpstreamPathTemplate": "/contact/{id}", // dışardan gelen istekler
+      "UpstreamHttpMethod": [ "GET" ]
+    }
   ]
 
 }
